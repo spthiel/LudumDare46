@@ -1,0 +1,176 @@
+:root {
+    --var-scale: 3px;
+    --var-dx: 0px;
+    --var-dy: 0px;
+    --var-offset: 0;
+}
+
+body {
+    margin: 0;
+    background: bisque;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    transition: background 1s;
+}
+
+.sun {
+    transform: translate(-50%, -60%);
+    background-image: url("../assets/game/sun.png");
+    --var-index: 2;
+    --var-top: calc(-1 * var(--var-height) * var(--var-scale) * var(--var-index) + var(--var-pxoffset));
+    --var-left: 0px;
+    --var-pxoffset: calc(var(--var-width) * var(--var-scale) * var(--var-offset) / 32);
+    top: 0;
+    left: var(--var-left);
+    z-index: 1;
+    animation: sunIdle 4s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.face {
+    --var-height: 16;
+    --var-width: 16;
+    background: url("../assets/faces/smile.png");
+}
+
+body .ahegao {
+    image-rendering: inherit;
+}
+
+.img {
+    position: absolute;
+    width: calc(var(--var-width) * var(--var-scale));
+    height: calc(var(--var-height) * var(--var-scale));
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    background-repeat: no-repeat;
+    background-size: calc(var(--var-width) * var(--var-scale)) calc(var(--var-height) * var(--var-scale));
+}
+
+#plant {
+    --var-height: 32;
+    --var-width: 32;
+    position: absolute;
+    left: 50%;
+    top: 75%;
+    transform: translate(-50%,-50%);
+}
+
+.stem {
+    --var-height: 32;
+    --var-width: 32;
+    --var-index: 0;
+    --var-pxoffset: calc(var(--var-width) * var(--var-scale) * var(--var-offset) / 32);
+    left: 0;
+    transform: translate(-50%, -100%);
+    background-image: url("../assets/game/stem.png");
+    z-index: 0;
+}
+
+.stem:first-child {
+    top: 0;
+    height: calc(var(--var-height) * var(--var-scale) - var(--var-pxoffset));
+}
+
+.stem:not(:first-child) {
+    top: calc(-1 * var(--var-height) * var(--var-scale) * var(--var-index) + var(--var-pxoffset));
+}
+
+.pot {
+    --var-height: 23;
+    --var-width: 32;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, 0);
+    background-image: url("../assets/game/pot.png");
+    z-index: 0;
+}
+
+.can {
+    --var-height: 19;
+    --var-width: 32;
+    top: -160px;
+    left: 40px;
+    transform: translate(-50%, -50%);
+    background-image: url("../assets/game/can.png");
+    z-index: 2;
+    display: none;
+}
+
+.water {
+    --var-height: 32;
+    --var-width: 16;
+    top: 12px;
+    left: -50px;
+    transform: translate(-50%, -50%);
+    background-image: url("../assets/game/water.png");
+    z-index: 0;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+.can.start {
+    display: block;
+    animation: canRotate 4s linear;
+}
+
+.can.start .water {
+    animation: water 4s linear;
+}
+
+@keyframes water {
+    0% {
+        opacity: 0;
+    }
+    19% {
+        opacity: 0;
+    }
+    20%, 70% {
+        opacity: 100%;
+    }
+    71% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes canRotate {
+    0% {
+        transform: rotate(0deg) translate(-50%, -50%);
+    }
+    20%, 70% {
+        transform: rotate(-45deg) translate(-50%, -50%);
+    }
+    90% {
+        transform: rotate(0deg) translate(-50%, -50%);
+    }
+}
+
+@keyframes sunIdle {
+    0% {
+        top: var(--var-top);
+        left: var(--var-left);
+    }
+    25% {
+        top: calc(var(--var-top) - 3px);
+        left: calc(var(--var-left) + 2px);
+    }
+    50% {
+        top: var(--var-top);
+        left: calc(var(--var-left) - 3px);
+    }
+    75% {
+        top: calc(var(--var-top) + 3px);
+        left: calc(var(--var-left) + 2px);
+    }
+    100% {
+        top: var(--var-top);
+        left: var(--var-left);
+    }
+}

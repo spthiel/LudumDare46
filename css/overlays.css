@@ -1,0 +1,63 @@
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    background: rgba(0,0,0,.7);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.split {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.buttons {
+    justify-self: flex-end;
+    flex-grow: 1;
+    max-width: 240px;
+}
+
+.explanation {
+    justify-self: flex-start;
+    flex-grow: 1;
+    max-width: 200px;
+    word-break: break-word;
+}
+
+[hidden] {
+    display: none;
+}
+
+.explanation,
+.overbutton {
+    margin: 2px;
+    box-shadow: 0 0 4px black;
+    background: gray;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+.overbutton:hover {
+    filter: brightness(140%);
+}
+
+.exitOrder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#title {
+    font-size: 2em;
+}
+
+#title,
+#story {
+    flex-grow: 0;
+}

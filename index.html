@@ -1,0 +1,97 @@
+<html>
+<head>
+    <title>Ludum Dare 46</title>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/ends.js"></script>
+    <script type="text/javascript" src="js/names.js"></script>
+    <script type="text/javascript" src="js/stats.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/story.js"></script>
+    <script type="text/javascript" src="js/overlays.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nova+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="css/dialog.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/stats.css">
+    <link rel="stylesheet" type="text/css" href="css/overlays.css">
+    <link rel="stylesheet" type="text/css" href="css/audio.css">
+</head>
+<body>
+<div id="entryScreen" class="overlay">
+    <div class="split">
+        <div class="buttons">
+            <div id="jamversion" class="overbutton text">
+                Play compo version
+            </div>
+            <div id="nonjam" class="overbutton text">
+                Play non-compo version
+            </div>
+        </div>
+        <div class="explanation text">
+            The game uses a single non-compo rules compliant asset as a joke that appears with a 1 in 20 chance after
+            you completed an affection run. If you believe that will influence your voting on the game click on compo
+            version, in which the asset isn't used.
+        </div>
+    </div>
+</div>
+<div id="plant">
+    <div class="sun img">
+        <div class="face img"></div>
+    </div>
+    <div id="stems">
+    </div>
+    <div class="pot img"></div>
+    <div class="can img">
+        <div class="water img"></div>
+    </div>
+</div>
+<div id="dialog">
+    <div id="question" class="text flower">
+    </div>
+    <div id="answers">
+    </div>
+</div>
+<div class="left">
+    <div id="sidebar">
+        <div class="button" onclick="onEvent('onWateringCan', 4000)">
+            <div class="canButton img"></div>
+        </div>
+        <div class="button" onclick="onEvent('onCurtain', 1000)">
+            <div class="curtainButton img"></div>
+        </div>
+    </div>
+</div>
+<div id="stats">
+    <div id="water" class="stat">
+        <div class="container">
+            <div class="watericon"></div>
+        </div>
+        <div class="waterbar bar">
+            <div class="rect"></div>
+        </div>
+    </div>
+    <div id="sun" class="stat">
+        <div class="container">
+            <div class="sunicon"></div>
+        </div>
+        <div class="sunbar bar">
+            <div class="rect"></div>
+        </div>
+    </div>
+</div>
+<div id="exitScreen" class="overlay" hidden>
+    <div class="exitOrder">
+        <div id="title" class="text explanation">
+
+        </div>
+        <div id="story" class="text explanation">
+
+        </div>
+        <div id="continue" class="overbutton text">
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/onload.js"></script>
+</body>
+</html>

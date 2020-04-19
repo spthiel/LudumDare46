@@ -1,0 +1,74 @@
+#stats {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    --var-stat: 50;
+    --var-color: red;
+    --var-a: 0.1020;
+    --var-b: -10.2;
+    --var-c: 255;
+    transition: 1s;
+}
+
+.bar {
+    width: 200px;
+    border: 2px solid black;
+    background: darkgray;
+    height: 2em;
+    border-radius: 0 4px 4px 0;
+}
+
+.rect {
+    width: calc(1% * var(--var-stat));
+    height: 100%;
+    --var-square: calc(var(--var-stat) * var(--var-stat));
+    --var-y: calc(var(--var-a) * var(--var-square) + var(--var-b) * var(--var-stat) + var(--var-c));
+}
+
+#water .rect {
+    --var-red: var(--var-y);
+    --var-blue: calc(255 - var(--var-y));
+    background: rgb(var(--var-red), 0, var(--var-blue));
+}
+
+#sun .rect {
+    --var-green: calc(255 - var(--var-y));
+    background: rgb(255, var(--var-green), 0);
+}
+
+.stat {
+    margin: 2px;
+    display: flex;
+    box-shadow: 0 0 4px black;
+}
+
+.sunicon,
+.watericon {
+    width: 2em;
+    height: 2em;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-shadow: 0 0 2px black;
+    border: 2px solid black;
+    border-right: 0px;
+    border-radius: 4px 0 0 4px;
+    background-color: gray;
+}
+
+.sunicon {
+    background-image: url("../assets/icons/sunicon.png");
+}
+
+.watericon {
+    background-image: url("../assets/icons/waterdroplet.png");
+}
+
+@media (max-width: 700px) {
+    #stats {
+        transform: rotate(90deg) translateY(calc(4em + 14px));
+        transform-origin: bottom right;
+    }
+}
