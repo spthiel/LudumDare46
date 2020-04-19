@@ -14,7 +14,7 @@ function next(index) {
     let part;
     if(askLove) {
         part = love;
-    } else if(queue > 0) {
+    } else if(queue > 0 || queue < 0) {
         queue--;
         part = repeating[repeatingIndex%repeating.length];
         repeatingIndex++;
@@ -25,11 +25,12 @@ function next(index) {
         } else {
             current = index;
         }
-        part = story[current];
-        if(part === undefined) {
+        if(current >= story.length) {
             queue = -1;
+            next();
             return;
         }
+        part = story[current];
     }
     queue = part.queue ? part.queue : 0;
     question.innerText = stats.name + ": " + part.question;
