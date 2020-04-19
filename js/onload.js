@@ -23,6 +23,7 @@ document.addEventListener('click',event => {
         audio.setAttribute("autoplay","");
         audio.setAttribute("loop","");
         audio.setAttribute("controls","");
+        audio.setAttribute("controlsList","nodownload");
         document.body.appendChild(audio);
         audioLoaded = true;
     }
